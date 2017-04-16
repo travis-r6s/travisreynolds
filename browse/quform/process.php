@@ -120,7 +120,7 @@ $config['autoreplyBody'] = '/emails/autoreply.php';
  *
  * $config['redirect'] = 'http://www.example.com/thanks.html';
  */
-$config['redirect'] = 'https://travisreynolds.co.uk/browse/thanks';
+$config['redirect'] = 'https://travisreynolds.uk/browse/thanks';
 
 /**
  * Whether or not to save the form data to a database. true or false
