@@ -205,18 +205,6 @@ $message->addFilter('trim');
 $message->addValidator('required');
 $form->addElement($message);
 
-/**
- * Configure the CAPTCHA element
- * Filters: Trim
- * Validators: Required, Identical
- */
-$captcha = new Quform_Element('type_the_word', 'Type the word');
-$captcha->addFilter('trim');
-$captcha->addValidator('required');
-$captcha->addValidator('identical', array('token' => 'catch'));
-$captcha->setIsHidden(true);
-$form->addElement($captcha);
-
 /** END FORM ELEMENT CONFIGURATION **/
 
 function process(Quform $form, array &$config)
