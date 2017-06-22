@@ -82,14 +82,13 @@ u782635832@153.92.6.1's password: <br />
 -bash-4.2$ </code>
                 <p>We're in!</p>
                 <p>Okay, let's explore a little bit. On <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, SSH takes you to a level up from the main folder. So if you type <code>ls</code>, you will see a folder called <code>public_html</code>.
-                    <code>-bash-4.2$ ls<br />
-DO_NOT_UPLOAD_HERE  public_html</code>
-                    <strong>It is important to note that the server only shows files inside that folder</strong>, anything above public_html will not be shown.<br /> Let's start installing Grav! <br /> Firstly, enter the <code>public_html</code> folder,
+                    <br /><code>-bash-4.2$ ls<br />
+DO_NOT_UPLOAD_HERE  public_html</code><br />
+                    <br /><strong>It is important to note that the server only shows files inside that folder</strong>, anything above public_html will not be shown.<br /> Let's start installing Grav! <br /> Firstly, enter the <code>public_html</code> folder,
                     with <code>cd public_html</code>. Now type <code>ls</code>. Presuming it is a brand new account, there may be a default or example page in this folder.<br />
                     <img src="/thoughts/images/blog/tuts/grav-cms/4-default-page.jpg" /><br /> It is also important to note that Composer won't install Grav if the folder already has content in it. This means that if you do have a default page, you will
                     need to remove it.<br /> This can be done by typing <code>rm [filename]</code>, or if there are multiple files/folders, type <code>rm -r *</code>. This tells the server to recursively (<code>-r</code>) remove all content in that folder/subfolders
-                    (
-                    <code>*</code>). Now we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells
+                    (<code>*</code>). Now we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells
                     composer to install Grav in the current folder (<code>.</code>). Composer will start its thing, and download all files and dependencies etc. It may take a while... relax, and catch up on some wildlife documentaries.<br />
                     <code>bash-4.2$ composer create-project getgrav/grav .<br />
 Installing getgrav/grav (1.2.4)<br />
