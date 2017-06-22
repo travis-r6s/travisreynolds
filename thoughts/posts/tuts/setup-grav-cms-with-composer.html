@@ -48,7 +48,7 @@
                 <header class="major">
                     <span class="date">June 22, 2017</span>
                     <h1>How to install and use Grav CMS</h1>
-                    <p>Here I will explain how to install Grav CMS with composer.</p>
+                    <p>Here I will explain how to install Grav CMS with Composer.</p>
                 </header>
                 <div class="image main"><img src="/thoughts/images/blog/tuts/building-a-website/p1/main.jpg" alt="" /></div>
                 <p>I have bought another domain name! Now what? I've been wanting to try <a href="https://getgrav.org/" target="_blank">Grav CMS</a> for a while. <a href="https://getgrav.org/" target="_blank">Grav CMS</a> is different from many other content managements systems, as it is a 'open source flat-file CMS' which means it doesn't require a database. This, in turn, means it can create a super fast website, as there is no delay in waiting for the database server to serve up the page content. So lets try installing it...</p>
@@ -69,7 +69,7 @@
                 <img src="/thoughts/images/blog/tuts/grav-cms/3-ssh-access.jpg" />
                 <p>Awesome! We are ready to roll. Next, you will need an SSH Client. I'm using Windows, so I have chosen
                     <a href="http://mobaxterm.mobatek.net/download-home-edition.html" target="_blank">MobaXterm.</a> This is a nice SSH/SFTP/FTP client which I find easier to use than Putty etc. But you can use whatever you feel comfortable with.</br>
-                    Login to your server with the SSH details, <code>ssh username@host -p 65002</code>(note: Hostinger uses a different port for SSH, hence i have added the <code>-p 65002</code>. If your host uses the default port, there is no need to
+                    Login to your server with the SSH details, <code>ssh username@host -p 65002</code>(note: Hostinger uses a different port for SSH, hence I have added the <code>-p 65002</code>. If your host uses the default port, there is no need to
                     add that part) and if all goes well, you should be able to access the command line! Excellent.</p>
                 <code>thetre:~/workspace/website (master) $ ssh username@example.com -p 65002<br />
 The authenticity of host '[example.com]:65002 ([153.92.6.1]:65002)' can't be established.<br />
@@ -89,7 +89,7 @@ DO_NOT_UPLOAD_HERE  public_html</code><br />
                     <img src="/thoughts/images/blog/tuts/grav-cms/4-default-page.jpg" /><br /> It is also important to note that Composer won't install Grav if the folder already has content in it. This means that if you do have a default page, you will
                     need to remove it.<br /> This can be done by typing <code>rm [filename]</code>, or if there are multiple files/folders, type <code>rm -r *</code>. This tells the server to recursively (<code>-r</code>) remove all content in that folder/subfolders
                     (<code>*</code>). Now we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells
-                    composer to install Grav in the current folder (<code>.</code>). Composer will start its thing, and download all files and dependencies etc. It may take a while... relax, and catch up on some wildlife documentaries.<br />
+                    Composer to install Grav in the current folder (<code>.</code>). Composer will start its thing, and download all files and dependencies etc. It may take a while... relax, and catch up on some wildlife documentaries.<br />
                     <code>bash-4.2$ composer create-project getgrav/grav .<br />
 Installing getgrav/grav (1.2.4)<br />
   - Installing getgrav/grav (1.2.4): Downloading (100%)         <br />
@@ -109,10 +109,10 @@ Package operations: 59 installs, 0 updates, 0 removals<br />
   - Installing seld/cli-prompt (1.0.3): Downloading (100%)         <br />
   - Installing league/climate (3.2.1): Downloading (100%)  </code>
                     </br>
-                    <br /> When Composer has finished, we still have a couple more things to do. When we install Grav with composer, it only installs the base system.
+                    <br /> When Composer has finished, we still have a couple more things to do. When we install Grav with Composer, it only installs the base system.
                     <br /> Currently, if you browse to the web page where you installed Grav, it will say you have no theme. So, we need to install a theme, and a few plugins to make managing the site easier.<br /> Make sure you are in the root of the
                     grav installation (where you installed grav) and type <code>bin/gpm install antimatter -y</code> into the command line. This tells grav to install the default Antimatter theme using the Grav Package Manager (GPM). Once that has finished,
-                    if you refresh your web page, it should show the theme. Woop!<br />If this command doesnt work, type <code>ls</code> and check to see if there is a folder called <code>bin</code>. If there isn't, then you need to enter the public_html
+                    if you refresh your web page, it should show the theme. Woop!<br />If this command doesn't work, type <code>ls</code> and check to see if there is a folder called <code>bin</code>. If there isn't, then you need to enter the public_html
                     folder again, or browse to where you installed Grav.<br />
                     <code>bash-4.2$ bin/gpm install antimatter -y</br>
 </br>
