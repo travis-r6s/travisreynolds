@@ -48,28 +48,33 @@
 									<h1>How to install and use Grav CMS</h1>
 									<p>Here I will explain how to install Grav CMS with composer.</p>
 								</header>
-								<div class="image main"><img src="/website/thoughts/images/blog/tuts/building-a-website/p1/main.jpg" alt="" /></div>
-								<p>I have bought another domain name! Now what? I've been wanting to try Grav CMS for a while, so lets try isntalling that...</p>
-								<p>Firstly, you need to make sure you have SSH access to your server. In my case, I have a premium account with <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, which allows me SSH access.</p>
+								<div class="image main"><img src="/thoughts/images/blog/tuts/building-a-website/p1/main.jpg" alt="" /></div>
+                                <p>I have bought another domain name! Now what? I've been wanting to try Grav CMS for a while, so lets try installing it...</p>
+                                <p>Firstly, you need to make sure you have SSH access to your server. In my case, I have a premium account with <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, which allows me SSH access.</p>
                                 <p><strong>Skip this section if you dont use Hostinger: I'm sure your hosting provider has instructions about where to find your SSH details.</strong> To find your SSH details in Hostinger, go to your control panel. Then click on your hosting account, (in my case lyndhurst-109.xyz) and click manage.</p>
-                                <img src="/images/blog/tuts/grav-cms/1-hosting-accounts.jpg" />
+                                <img src="/website/thoughts/images/blog/tuts/grav-cms/1-hosting accounts.jpg" />
                                 <p>Now scroll down, till you get to the section 'Advanced', and click on 'SSH Access'. This will take you to another page, where you can enable SSH Access. So go ahead and do that... Click enable, and update. (I always think green is nicer than red...?)</p>
-                                <img src="/images/blog/tuts/grav-cms/2-cp-advanced.jpg" />
-                                <img src="/images/blog/tuts/grav-cms/3-ssh-access.jpg" />
+                                <img src="/website/thoughts/images/blog/tuts/grav-cms/2-cp-advanced.jpg" />
+                                <img src="/website/thoughts/images/blog/tuts/grav-cms/3-ssh-access.jpg" />
                                 <p>Awesome! We are ready to roll. Next, you will need an SSH Client. Im using Windows, so I have chosen <a href="http://mobaxterm.mobatek.net/download-home-edition.html" target="_blank"></a>MobaXterm.</a> This is a nice SSH/SFTP/FTP client which I find easier to use than Putty etc. But you can use whatever you feel comfortable with.</br>
-                                Login to your server with the SSH details, and if all goes well, you should be able to access the commandline! Excellent.</p>
+                                Login to your server with the SSH details, <code>ssh username@host -p 65002</code>(note: Hostinger uses a different port for SSH, hence i have added the <code>-p 65002</code>. If your host uses the default port, there is no need to add that part) and if all goes well, you should be able to access the commandline! Excellent.</p>
                                 <img />
-                                <p>Firstly, let's explore a little bit. On <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, SSH takes you to a level up from FTP. so if you type <code>ls</code>, you will see a folder called <code>public_html</code>. <strong>It is important to note that the server only shows files inside that folder</strong>, anything above public_html will not be shown.<br />
+                                <p>Okay, let's explore a little bit. On <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, SSH takes you to a level up from the main folder. so if you type <code>ls</code>, you will see a folder called <code>public_html</code>. <strong>It is important to note that the server only shows files inside that folder</strong>, anything above public_html will not be shown.<br />
                                 Let's start installing Grav! <br />
                                 Firstly, enter the <code>public_html</code> folder, with <code>cd public_html</code>. Now type <code>ls</code>. Presuming it is a brand new account, there may be a default or example page in this folder. It is also important to note that Composer won't install Grav if the folder already has content in it. THis means that if you do have a default page, you will need to remove it.<br />
                                 This can be done by typing <code>rm [filename]</code>, or if there are multiple files/folders, type <code>rm -r *</code>. This tells the server to recursively (<code>-r</code>) remove all content in that folder/subfolders (<code>*</code>).
-                                Now, we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells composer to install Grav in the current folder (<code>.</code>). Composer will start it's thing, and download all files and dependancies etc. It may take a while... relax, and catch up on some wildlife documentaries.< br/>
-                                When composer has finished, we still have a couple mroe things to do. When we install Grav with composer, it only installes the base system. Currently, if you browse to the webpage where you installed Grav, it will say you have no theme. So, we need to install a theme, and a few plugins to make managing the site easier.<br />
-                                Type <code>bin/gpm install antimatter -y</code> into the commandline. This tells grav to install the defualt Antimatter theme using the Grav Package Manager (GPM). Once that has finished, if you refresh your webapge, it shoul show the theme. Woop!<br />
-                                One other plugin to install, is the admin plugin. THis provides a nice backend interface to manage your site. Type <code>bin/gpm install admin -y</code>. Once that has finihsed, again refresh teh page. This time it should show you a registration screen, where you can setup an admin user. Fill in the fields with a username, password etc, and click setup. <br />
-                                The page will refresh and take you to an admin page. Here you can now start customising your site, with the sitename etc. You can also add pages via the pages menu. These will use the defult theme installed at the moment. The bar down the left hand side also has options to install other themes and plugins etc.<br />
+                                Now, we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells composer to install Grav in the current folder (<code>.</code>). Composer will start its thing, and download all files and dependencies etc. It may take a while... relax, and catch up on some wildlife documentaries.<br />
+                                <br />
+                                When composer has finished, we still have a couple more things to do. When we install Grav with composer, it only installs the base system.
+                                <br />
+                                Currently, if you browse to the web page where you installed Grav, it will say you have no theme. So, we need to install a theme, and a few plugins to make managing the site easier.<br />
+                                Type <code>bin/gpm install antimatter -y</code> into the command line. This tells grav to install the default Antimatter theme using the Grav Package Manager (GPM). Once that has finished, if you refresh your web page, it should show the theme. Woop!<br />
+                                <br />
+                                One other plugin to install is the admin plugin. This provides a nice backend interface to manage your site. Type <code>bin/gpm install admin -y</code>. Once that has finished, again refresh the page. This time it should show you a registration screen, where you can set up an admin user. Fill in the fields with a username, password etc, and click setup. <br />
+                                The page will refresh and take you to an admin page. Here you can now start customising your site, with the site name etc. You can also add pages via the pages menu. These will use the default theme installed at the moment. The bar down the left-hand side also has options to install other themes and plugins etc.<br />
+                                <br />
                                 Have fun!</p>
-								</section>
+                                </section>
 
 					</div>
 
