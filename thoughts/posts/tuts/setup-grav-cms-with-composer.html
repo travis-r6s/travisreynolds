@@ -80,21 +80,68 @@ u782635832@153.92.6.1's password: <br />
 -bash: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)<br />
 /bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)<br />
 -bash-4.2$ </code>
+                <p>We're in!</p>
                 <p>Okay, let's explore a little bit. On <a href="http://api.hostinger.co.uk/redir/6046271" target="_blank">Hostinger</a>, SSH takes you to a level up from the main folder. So if you type <code>ls</code>, you will see a folder called <code>public_html</code>.
+                    <code>-bash-4.2$ ls<br />
+DO_NOT_UPLOAD_HERE  public_html</code>
                     <strong>It is important to note that the server only shows files inside that folder</strong>, anything above public_html will not be shown.<br /> Let's start installing Grav! <br /> Firstly, enter the <code>public_html</code> folder,
                     with <code>cd public_html</code>. Now type <code>ls</code>. Presuming it is a brand new account, there may be a default or example page in this folder.<br />
                     <img src="/thoughts/images/blog/tuts/grav-cms/4-default-page.jpg" /><br /> It is also important to note that Composer won't install Grav if the folder already has content in it. This means that if you do have a default page, you will
                     need to remove it.<br /> This can be done by typing <code>rm [filename]</code>, or if there are multiple files/folders, type <code>rm -r *</code>. This tells the server to recursively (<code>-r</code>) remove all content in that folder/subfolders
-                    (<code>*</code>). Now we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells
+                    (
+                    <code>*</code>). Now we have an empty folder! We can finally get to the gritty bits, really installing Grav CMS. We can simply install Grav by typing this short line. <code>composer create-project getgrav/grav .</code>. This tells
                     composer to install Grav in the current folder (<code>.</code>). Composer will start its thing, and download all files and dependencies etc. It may take a while... relax, and catch up on some wildlife documentaries.<br />
+                    <code>bash-4.2$ composer create-project getgrav/grav .<br />
+Installing getgrav/grav (1.2.4)<br />
+  - Installing getgrav/grav (1.2.4): Downloading (100%)         <br />
+Created project in .<br />
+Loading composer repositories with package information<br />
+Installing dependencies (including require-dev) from lock file<br />
+Package operations: 59 installs, 0 updates, 0 removals<br />
+  - Installing antoligy/dom-string-iterators (v1.0.0): Downloading (100%)    <br />     
+  - Installing doctrine/cache (v1.6.1): Downloading (100%)         <br />
+  - Installing donatj/phpuseragentparser (v0.7.0): Downloading (100%)      <br />   
+  - Installing erusev/parsedown (1.6.2): Downloading (100%)         <br />
+  - Installing erusev/parsedown-extra (0.7.1): Downloading (100%)         <br />
+  - Installing psr/log (1.0.2): Downloading (100%)         <br />
+  - Installing filp/whoops (2.1.8): Downloading (100%)         <br />
+  - Installing gregwar/cache (v1.0.12): Downloading (100%)         <br />
+  - Installing gregwar/image (v2.0.21): Downloading (100%)         <br />
+  - Installing seld/cli-prompt (1.0.3): Downloading (100%)         <br />
+  - Installing league/climate (3.2.1): Downloading (100%)  </code>
+                    </br>
                     <br /> When Composer has finished, we still have a couple more things to do. When we install Grav with composer, it only installs the base system.
                     <br /> Currently, if you browse to the web page where you installed Grav, it will say you have no theme. So, we need to install a theme, and a few plugins to make managing the site easier.<br /> Make sure you are in the root of the
                     grav installation (where you installed grav) and type <code>bin/gpm install antimatter -y</code> into the command line. This tells grav to install the default Antimatter theme using the Grav Package Manager (GPM). Once that has finished,
                     if you refresh your web page, it should show the theme. Woop!<br />If this command doesnt work, type <code>ls</code> and check to see if there is a folder called <code>bin</code>. If there isn't, then you need to enter the public_html
-                    folder again, or browse to where you installed Grav.
+                    folder again, or browse to where you installed Grav.<br />
+                    <code>bash-4.2$ bin/gpm install antimatter -y</br>
+</br>
+GPM Releases Configuration: Stable</br>
+</br>
+Preparing to install Antimatter [v2.1.1]</br>
+  |- Downloading package...   100%</br>
+  |- Checking destination...  ok</br>
+  |- Installing package...    ok         </br>                    
+  '- Success!  </br>
+</br>
+Clearing cache</br>
+</br>
+Cleared:  /home/u782635832/public_html/cache/compiled/*</br>
+</br>
+Touched: /home/u782635832/public_html/user/config/system.yaml</code></br>
+                    </br>
                     <br /> One other plugin to install is the admin plugin. This provides a nice backend interface to manage your site. Type <code>bin/gpm install admin -y</code>. Once that has finished, again refresh the page. This time it should show
-                    you a registration screen, where you can set up an admin user. Fill in the fields with a username, password etc, and click setup. <br /> The page will refresh and take you to an admin page. Here you can now start customising your site,
-                    with the site name etc. You can also add pages via the pages menu. These will use the default theme installed at the moment. The bar down the left-hand side also has options to install other themes and plugins etc.<br />
+                    you a registration screen, where you can set up an admin user. <br />
+                    <img src="/thoughts/images/blog/tuts/grav-cms/5-admin.jpg" />
+                    Fill in the fields with a username, password etc, and click Create User. The page will refresh and take you to an admin page. <br />
+                    <img src="/thoughts/images/blog/tuts/grav-cms/6-backend.jpg" />
+                    Here you can now start customising your site,with the site name etc. You can also add pages via the pages menu. These will use the default theme installed at the moment. Click on Pages, and click on add in the top right corner.<br />
+                    Fill in the webpage name and folder. This is the path you will access the webpage on. For example, I have named mine 'test', so I access the page at example.com/test.
+                    <img src="/thoughts/images/blog/tuts/grav-cms/7-test-page.jpg" />
+                    <img src="/thoughts/images/blog/tuts/grav-cms/8-test-web-page.jpg" /><br />
+                    The bar down the left-hand side also has options to install other themes and plugins.<br />
+                    <hr />
                     <br /> Have fun!</p>
             </section>
 
