@@ -1,3 +1,3 @@
 <?php
-header('Location: https://travisreynolds.uk/browse/#footer')
+header('Location: https://travisreynolds.uk/thoughts/index.html#footer')
 ?>
