@@ -155,7 +155,7 @@ Touched: /home/u782635832/public_html/user/config/system.yaml</code></br>
         <!-- Footer -->
 						<footer id="footer">
 							<section>
-								<form method="post" action="/contact/quform/process.php">
+								<form action="https://formspree.io/hello@travisreynolds.uk" method="POST">
 									<div class="field">
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" />
@@ -171,6 +171,8 @@ Touched: /home/u782635832/public_html/user/config/system.yaml</code></br>
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" /></li>
 									</ul>
+									<input type="hidden" name="_next" value="/contact/thanks/" />
+									<input type="hidden" name="_subject" value="New submission!" />
 								</form>
 							</section>
 							<section class="split contact">
