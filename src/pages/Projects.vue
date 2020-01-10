@@ -40,7 +40,7 @@
               <header class="major">
                 <h3>{{ project.title }}</h3>
               </header>
-              <div v-html="project.description" />
+              <vue-markdown>{{ project.description }}</vue-markdown>
               <ul
                 v-if="project.url"
                 class="actions">
@@ -61,7 +61,10 @@
 </template>
 
 <script>
+// Components
+import VueMarkdown from 'vue-markdown'
 export default {
+  components: { VueMarkdown },
   metaInfo: {
     title: 'Projects',
     meta: [

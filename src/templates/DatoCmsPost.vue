@@ -13,7 +13,7 @@
               :src="post.featuredImage.url"
               :alt="post.title">
           </div>
-          <div v-html="post.text" />
+          <vue-markdown>{{ post.text }}</vue-markdown>
         </div>
       </section>
     </div>
@@ -21,7 +21,10 @@
 </template>
 
 <script>
+// Components
+import VueMarkdown from 'vue-markdown'
 export default {
+  components: { VueMarkdown },
   metaInfo () {
     const { title, description = '' } = this.post.seo || this.post
     return {

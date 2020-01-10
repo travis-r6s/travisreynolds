@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@gridsome/source-datocms": "^0.2.1",
-    "gridsome": "^0.7.12"
+    "gridsome": "^0.7.12",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
