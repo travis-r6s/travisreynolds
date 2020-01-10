@@ -2,7 +2,9 @@
   <header
     id="header"
     class="alt">
-    <g-link to="/">
+    <g-link
+      to="/"
+      class="logo">
       <strong>{{ siteName.first }}</strong> <span>{{ siteName.last }}</span>
     </g-link>
     <nav>
