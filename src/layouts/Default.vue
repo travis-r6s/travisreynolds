@@ -1,50 +1,38 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header>
-    <slot/>
+  <div
+    class="body"
+    :class="{'is-loading': isLoading, 'is-menu-visible': isMenuVisible}">
+    <div id="wrapper">
+      <Header @toggleMenu="toggleMenu" />
+      <slot />
+      <Contact />
+      <Footer />
+    </div>
+    <Menu @toggleMenu="toggleMenu" />
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
+<script>
+// Components
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Menu from '@/components/Menu'
+export default {
+  components: { Contact, Footer, Header, Menu },
+  data: () => ({
+    isMenuVisible: false,
+    isLoading: true
+  }),
+  mounted () {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 100)
+  },
+  methods: {
+    toggleMenu () {
+      this.isMenuVisible = !this.isMenuVisible
+    }
   }
 }
-</static-query>
-
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
-}
-</style>
+</script>

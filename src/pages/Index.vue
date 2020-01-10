@@ -1,33 +1,108 @@
 <template>
   <Layout>
+    <section
+      id="banner"
+      class="major">
+      <div class="inner">
+        <header class="major">
+          <h1>{{ home.title }}</h1>
+        </header>
+        <div class="content">
+          <div v-html="home.subtitle" />
+          <ul class="actions">
+            <li>
+              <g-link
+                :to="home.buttonUrl"
+                class="button next scrolly">
+                {{ home.buttonText }}
+              </g-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div id="main">
+      <section
+        id="one"
+        class="tiles">
+        <article
+          v-for="post in posts"
+          :key="post.id"
+          :style="{backgroundImage: `url(${post.featuredImage.url})`}">
+          <header class="major">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.subtitle }}</p>
+          </header>
+          <g-link
+            :to="post.path"
+            class="link primary" />
+        </article>
+      </section>
+      <section id="two">
+        <div class="inner">
+          <header class="major">
+            <h2>Resume</h2>
+          </header>
+          <p>
+            You can view my online resume by clicking below.
+          </p>
+          <ul class="actions">
+            <li>
+              <a
+                href="https://travisreynolds.gitlab.io/resume"
+                class="button next">
+                View Resume
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Nice to see you'
+  },
+  computed: {
+    home () {
+      return this.$page.allDatoCmsHome.edges[ 0 ].node
+    },
+    posts () {
+      return this.$page.allDatoCmsPost.edges.map(({ node }) => node)
+    }
   }
 }
 </script>
 
-<style>
-.home-links a {
-  margin-right: 1rem;
+<page-query>
+query Home {
+  allDatoCmsHome {
+    edges {
+      node {
+        id
+        title
+        subtitle
+        buttonText
+        buttonUrl
+      }
+    }
+  }
+  allDatoCmsPost (sort: { order: DESC, by: "publishDate" }) {
+    edges {
+      node {
+        id
+        title
+        subtitle
+        path
+        featuredImage {
+          url
+        }
+      }
+    }
+  }
 }
-</style>
+</page-query>
