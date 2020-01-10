@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "travis-reynolds",
   "private": true,
   "scripts": {
     "build": "gridsome build",
@@ -9,5 +9,9 @@
   "dependencies": {
     "@gridsome/source-datocms": "^0.2.1",
     "gridsome": "^0.7.12"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.1"
   }
 }
