@@ -1,5 +1,5 @@
 module.exports = {
-  siteName: 'Trav',
+  siteName: 'Travis Reynolds',
   plugins: [
     {
       use: '@gridsome/source-datocms',
