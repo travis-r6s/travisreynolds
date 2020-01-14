@@ -102,7 +102,7 @@ query Home {
         path
         featuredImage {
           url
-          transformUrl(maxW: 1200, maxH: 600, q: 80)
+          transformUrl(w: 1000, h: 500, q: 80)
         }
       }
     }
