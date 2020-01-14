@@ -89,8 +89,8 @@ query Projects {
           content
         }
         coverImage {
-          transformUrl(maxW: 600, q: 85)
-          placeholder: transformUrl(w: 300, h: 300, blur: 60, q: 40)
+          transformUrl(imgixParams: { maxW: 600, q: 85, auto: "format,compress" })
+          placeholder: transformUrl(imgixParams: { w: 300, h: 300, blur: 60, q: 40, auto: "format,compress" })
         }
       }
     }
