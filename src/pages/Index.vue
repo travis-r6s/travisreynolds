@@ -8,7 +8,7 @@
           <h1>{{ home.title }}</h1>
         </header>
         <div class="content">
-          <div v-html="home.subtitle" />
+          <div v-html="home.subtitle.content" />
           <ul class="actions">
             <li>
               <g-link
@@ -85,7 +85,9 @@ query Home {
       node {
         id
         title
-        subtitle
+        subtitle {
+          content
+        }
         buttonText
         buttonUrl
       }

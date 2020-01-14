@@ -13,7 +13,7 @@
               :src="post.featuredImage.url"
               :alt="post.title">
           </div>
-          <vue-markdown>{{ post.text }}</vue-markdown>
+          <div v-html="post.text.content" />
         </div>
       </section>
     </div>
@@ -21,10 +21,7 @@
 </template>
 
 <script>
-// Components
-import VueMarkdown from 'vue-markdown'
 export default {
-  components: { VueMarkdown },
   metaInfo () {
     const { title, description = '' } = this.post.seo || this.post
     return {
@@ -47,7 +44,9 @@ export default {
 query ($id: ID!) {
   post: datoCmsPost (id: $id) {
     title
-    text
+    text {
+      content
+    }
     featuredImage {
       url
     }
