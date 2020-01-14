@@ -70,7 +70,10 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Nice to see you'
+    title: 'Nice to see you',
+    meta: [
+      { hid: 'description', name: 'description', content: `Travis' personal website, containing various snippets of code he always seems to forget 🙄` }
+    ]
   },
   data: () => ({ visible: {} }),
   computed: {
