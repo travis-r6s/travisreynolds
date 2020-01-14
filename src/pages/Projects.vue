@@ -66,10 +66,7 @@ export default {
   metaInfo: {
     title: 'Projects',
     meta: [
-      {
-        property: 'description',
-        value: 'My Personal Projects'
-      }
+      { hid: 'description', name: 'description', content: `A collection of various (semi-almost) completed projects I have made 💼` }
     ]
   },
   computed: {

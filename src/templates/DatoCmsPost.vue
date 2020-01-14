@@ -24,14 +24,11 @@
 <script>
 export default {
   metaInfo () {
-    const { title, description = '' } = this.post.seo || this.post
+    const { title, description = `A post about ${title}` } = this.post.seo || this.post
     return {
       title,
       meta: [
-        {
-          property: 'description',
-          content: description
-        }
+        { hid: 'description', name: 'description', content: description }
       ]
     }
   },
