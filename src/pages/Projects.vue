@@ -32,7 +32,7 @@
             :href="project.url"
             class="image">
             <img
-              :src="project.coverImage.url"
+              :src="project.coverImage.transformUrl"
               :alt="project.title">
           </a>
           <div class="content">
@@ -91,7 +91,7 @@ query Projects {
           content
         }
         coverImage {
-          url
+          transformUrl(maxW: 600, q: 85)
         }
       }
     }

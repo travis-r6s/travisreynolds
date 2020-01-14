@@ -29,7 +29,7 @@
         <article
           v-for="post in posts"
           :key="post.id"
-          :style="{backgroundImage: `url(${post.featuredImage.url})`}">
+          :style="{backgroundImage: `url(${post.featuredImage.transformUrl})`}">
           <header class="major">
             <h3>{{ post.title }}</h3>
             <p>{{ post.subtitle }}</p>
@@ -102,6 +102,7 @@ query Home {
         path
         featuredImage {
           url
+          transformUrl(maxW: 1200, maxH: 600, q: 80)
         }
       }
     }

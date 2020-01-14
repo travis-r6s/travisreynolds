@@ -10,7 +10,7 @@
           </header>
           <div class="image main">
             <img
-              :src="post.featuredImage.url"
+              :src="post.featuredImage.transformUrl"
               :alt="post.title">
           </div>
           <div v-html="post.text.content" />
@@ -48,7 +48,7 @@ query ($id: ID!) {
       content
     }
     featuredImage {
-      url
+      transformUrl(h: 500, maxW: 1200, q: 85)
     }
     seo {
       title
@@ -57,3 +57,9 @@ query ($id: ID!) {
   }
 }
 </page-query>
+
+<style lang="scss" scoped>
+.image img {
+  height: 500px;
+}
+</style>
