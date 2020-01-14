@@ -41,6 +41,7 @@
           </header>
           <g-link
             :to="post.path"
+            :aria-label="`View ${post.title} post`"
             class="link primary" />
         </article>
       </section>

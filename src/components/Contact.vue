@@ -66,14 +66,12 @@
       <section class="split">
         <section>
           <div class="contact-method">
-            <span class="icon alt fa-envelope" />
             <h3>Email</h3>
             <a href="mailto:hello@travisreynolds.dev">hello@travisreynolds.dev</a>
           </div>
         </section>
         <section>
           <div class="contact-method">
-            <span class="icon alt fa-home" />
             <h3>Address</h3>
             <span>
               Address?
