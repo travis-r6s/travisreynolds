@@ -17,8 +17,7 @@
     "gridsome-plugin-purgecss": "^1.0.12",
     "gridsome-plugin-pwa": "^0.0.12",
     "gridsome-plugin-robots-txt": "^1.0.2",
-    "gridsome-plugin-rss": "^1.2.0",
-    "vue-markdown": "^2.2.4"
+    "gridsome-plugin-rss": "^1.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
