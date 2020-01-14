@@ -9,9 +9,10 @@
             <h1>{{ post.title }}</h1>
           </header>
           <div class="image main">
-            <img
+            <v-lazy-image
               :src="post.featuredImage.transformUrl"
-              :alt="post.title">
+              :src-placeholder="post.featuredImage.placeholder"
+              :alt="post.title" />
           </div>
           <div v-html="post.text.content" />
         </div>
@@ -49,6 +50,7 @@ query ($id: ID!) {
     }
     featuredImage {
       transformUrl(h: 500, maxW: 1200, q: 85)
+      placeholder: transformUrl(h: 300, w: 500, q: 40, blur: 60)
     }
     seo {
       title

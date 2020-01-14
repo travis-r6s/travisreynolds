@@ -31,9 +31,10 @@
           <a
             :href="project.url"
             class="image">
-            <img
+            <v-lazy-image
               :src="project.coverImage.transformUrl"
-              :alt="project.title">
+              :src-placeholder="project.coverImage.placeholder"
+              :alt="project.title" />
           </a>
           <div class="content">
             <div class="inner">
@@ -92,6 +93,7 @@ query Projects {
         }
         coverImage {
           transformUrl(maxW: 600, q: 85)
+          placeholder: transformUrl(w: 300, h: 300, blur: 60, q: 40)
         }
       }
     }
