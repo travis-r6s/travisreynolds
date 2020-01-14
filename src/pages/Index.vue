@@ -29,6 +29,11 @@
         <article
           v-for="post in posts"
           :key="post.id"
+          v-observe-visibility="{
+            callback: visibilityChanged,
+            once: true,
+          }"
+          class="background-image-lazy"
           :style="{backgroundImage: `url(${post.featuredImage.transformUrl})`}">
           <header class="major">
             <h3>{{ post.title }}</h3>
@@ -67,12 +72,18 @@ export default {
   metaInfo: {
     title: 'Nice to see you'
   },
+  data: () => ({ visible: {} }),
   computed: {
     home () {
       return this.$page.allDatoCmsHome.edges[ 0 ].node
     },
     posts () {
       return this.$page.allDatoCmsPost.edges.map(({ node }) => node)
+    }
+  },
+  methods: {
+    visibilityChanged (visible, entry) {
+      if (visible) entry.target.className = ''
     }
   }
 }
@@ -109,3 +120,9 @@ query Home {
   }
 }
 </page-query>
+
+<style lang="scss" scoped>
+.background-image-lazy {
+  background-image: none !important;
+}
+</style>
