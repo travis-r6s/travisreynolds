@@ -2,10 +2,11 @@
   <Layout>
     <section
       id="banner"
-      class="style2">
+      class="style2"
+      :style="`background-image: url(${work.headerBackgroundImage.transformUrl})`">
       <div class="inner">
         <header class="major">
-          <h1>Projects</h1>
+          <h1>{{ work.title }}</h1>
         </header>
       </div>
     </section>
@@ -14,12 +15,9 @@
       <section id="one">
         <div class="inner">
           <header class="major">
-            <h2>What are these?</h2>
+            <h2>{{ work.heroTitle }}</h2>
           </header>
-          <p>
-            I regularly create little projects to try out and test new web technologies, or things I have learnt.<br>
-            They are all listed here, for your browsing pleasure...
-          </p>
+          <div v-html="work.heroContent.content" />
         </div>
       </section>
       <section
@@ -70,6 +68,9 @@ export default {
     ]
   },
   computed: {
+    work () {
+      return this.$page.allDatoCmsWork.edges[ 0 ].node
+    },
     projects () {
       return this.$page.projects.edges.map(({ node }) => node)
     }
@@ -79,6 +80,21 @@ export default {
 
 <page-query>
 query Projects {
+  allDatoCmsWork {
+    edges {
+      node {
+        id
+        headerBackgroundImage {
+          transformUrl(imgixParams: { w: 1200, h: 600, fit: "crop", q: 80, auto: "format,compress" })
+        }
+        title
+        heroTitle
+        heroContent {
+          content
+        }
+      }
+    }
+  }
   projects: allDatoCmsProject (sort: { order: DESC, by: "publishDate" }) {
     edges {
       node {
@@ -90,7 +106,7 @@ query Projects {
         }
         coverImage {
           transformUrl(imgixParams: { maxW: 600, q: 85, auto: "format,compress" })
-          placeholder: transformUrl(imgixParams: { w: 300, h: 300, blur: 60, q: 40, auto: "format,compress" })
+          placeholder: transformUrl(imgixParams: { w: 300, h: 300, fit: "crop", blur: 60, q: 40, auto: "format,compress" })
         }
       }
     }
