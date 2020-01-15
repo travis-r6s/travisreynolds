@@ -2,7 +2,8 @@
   <Layout>
     <section
       id="banner"
-      class="major">
+      class="major"
+      :style="`background-image: url(${home.headerBackgroundImage.transformUrl})`">
       <div class="inner">
         <header class="major">
           <h1>{{ home.title }}</h1>
@@ -99,6 +100,9 @@ query Home {
     edges {
       node {
         id
+        headerBackgroundImage {
+          transformUrl(imgixParams: { w: 1200, h: 600, fit: "crop", q: 80, auto: "format,compress" })
+        }
         title
         subtitle {
           content
@@ -117,7 +121,7 @@ query Home {
         path
         featuredImage {
           url
-          transformUrl(imgixParams: { w: 1000, h: 500, q: 80, auto: "format,compress" })
+          transformUrl(imgixParams: { w: 1000, h: 500, fit: "crop", q: 80, auto: "format,compress" })
         }
       }
     }

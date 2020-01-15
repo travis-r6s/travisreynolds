@@ -46,8 +46,8 @@ query ($id: ID!) {
       content
     }
     featuredImage {
-      transformUrl(imgixParams: { h: 500, maxW: 1200, q: 85, auto: "format,compress" })
-      placeholder: transformUrl(imgixParams: { h: 300, w: 500, q: 40, blur: 60, auto: "format,compress" })
+      transformUrl(imgixParams: { h: 500, maxW: 1200, fit: "crop", q: 85, auto: "format,compress" })
+      placeholder: transformUrl(imgixParams: { h: 300, w: 500, fit: "crop", q: 40, blur: 60, auto: "format,compress" })
     }
     seo {
       title
