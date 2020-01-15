@@ -94,6 +94,12 @@ module.exports = {
         msTileImage: './src/images/t.png',
         msTileColor: '#242943'
       }
+    },
+    {
+      use: 'gridsome-plugin-brotli',
+      options: {
+        extensions: ['js', 'css', 'html']
+      }
     }
   ]
 }
