@@ -98,7 +98,7 @@ module.exports = {
     {
       use: 'gridsome-plugin-brotli',
       options: {
-        extensions: ['js', 'css', 'html']
+        extensions: ['js', 'css', 'html', 'json', 'svg']
       }
     }
   ]
