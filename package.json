@@ -13,6 +13,7 @@
     "@gridsome/source-datocms": "^0.2.1",
     "@gridsome/transformer-remark": "^0.4.0",
     "gridsome": "^0.7.12",
+    "gridsome-plugin-brotli": "^0.1.1",
     "gridsome-plugin-flexsearch": "^0.1.10",
     "gridsome-plugin-purgecss": "^1.0.12",
     "gridsome-plugin-pwa": "^0.0.12",
