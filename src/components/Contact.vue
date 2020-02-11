@@ -4,30 +4,20 @@
       <section>
         <form
           name="contact"
-          method="post"
-          action="/thanks/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field">
+          @submit.prevent="sendForm">
           <input
             type="hidden"
             name="form-name"
             value="contact">
-          <p hidden>
-            <label for="bot-field">
-              Don’t fill this out:{" "}
-              <input
-                id="bot-field"
-                name="bot-field"
-                onChange="{this.handleChange}">
-            </label>
-          </p>
           <div class="field half first">
             <label for="name">
               Name
               <input
                 id="name"
+                v-model="form.name"
                 type="text"
-                name="name">
+                name="name"
+                required>
             </label>
           </div>
           <div class="field half">
@@ -35,8 +25,10 @@
               Email
               <input
                 id="email"
+                v-model="form.email"
                 type="text"
-                name="email">
+                name="email"
+                required>
             </label>
           </div>
           <div class="field">
@@ -44,8 +36,10 @@
               Message
               <textarea
                 id="message"
+                v-model="form.message"
                 name="message"
-                rows="6" />
+                rows="6"
+                required />
             </label>
           </div>
           <ul class="actions">
@@ -56,9 +50,21 @@
                 class="special">
             </li>
             <li>
-              <input
-                type="reset"
-                value="Clear">
+              <p
+                v-if="loading"
+                class="sent">
+                Sending message...
+              </p>
+              <p
+                v-if="sent"
+                class="sent">
+                Sent! Thank you.
+              </p>
+              <p
+                v-if="error"
+                class="sent">
+                Something went wrong - please try again.
+              </p>
             </li>
           </ul>
         </form>
@@ -77,7 +83,7 @@
               Address?
               <br>
               Not happening.
-              <br>I get enough email spam as it is :)
+              <br>I get enough email spam as it is ¯\_(ツ)_/¯
             </span>
           </div>
         </section>
@@ -85,3 +91,42 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    loading: false,
+    sent: false,
+    error: false,
+    form: {
+      name: '',
+      email: '',
+      message: ''
+    }
+  }),
+  methods: {
+    async sendForm () {
+      this.loading = true
+      try {
+        await fetch('https://formspree.io/moqdpogz', {
+          method: 'POST',
+          body: JSON.stringify(this.form)
+        })
+        this.loading = false
+        this.sent = true
+      } catch (error) {
+        this.loading = false
+        this.sent = false
+        this.error = true
+        console.error(error)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.sent {
+  margin: 0
+}
+</style>
