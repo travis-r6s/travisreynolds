@@ -110,6 +110,7 @@ export default {
       try {
         await fetch('https://formspree.io/moqdpogz', {
           method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.form)
         })
         this.loading = false
