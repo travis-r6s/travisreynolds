@@ -1,0 +1,10 @@
+name = "travisreynolds"
+type = "webpack"
+account_id = "b34aa7a1f44091f9389bd5b614828959"
+zone_id = "42a9f4cfe2170a4dfac8f1ea2f43c9c6"
+route = "travisreynolds.dev/*"
+workers_dev = false
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
