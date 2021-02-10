@@ -30,14 +30,6 @@ module.exports = {
         searchFields: ['title', 'description']
       }
     },
-    // {
-    //   use: '@gridsome/plugin-critical',
-    //   options: {
-    //     paths: ['/', '/projects'],
-    //     width: 1300,
-    //     height: 900
-    //   }
-    // },
     'gridsome-plugin-purgecss',
     {
       use: '@gridsome/plugin-google-analytics',
@@ -61,45 +53,6 @@ module.exports = {
         }
       }
     },
-    'gridsome-plugin-robots-txt',
-    {
-      use: 'gridsome-plugin-rss',
-      options: {
-        contentTypeName: 'DatoCmsPost',
-        feedOptions: {
-          title: 'Travis Reynolds',
-          feed_url: 'https://travisreynolds.dev/rss.xml',
-          site_url: 'https://travisreynolds.dev'
-        },
-        feedItemOptions: node => ({
-          title: node.title,
-          description: node.description,
-          url: 'https://travisreynolds.dev/post/' + node.slug
-        }),
-        output: {
-          dir: './static',
-          name: 'rss.xml'
-        }
-      }
-    },
-    {
-      use: 'gridsome-plugin-pwa',
-      options: {
-        title: 'Travis Reynolds',
-        startUrl: '/',
-        shortName: 'Travis',
-        themeColor: '#242943',
-        backgroundColor: '#ffffff',
-        icon: './src/images/t.png',
-        msTileImage: './src/images/t.png',
-        msTileColor: '#242943'
-      }
-    },
-    {
-      use: 'gridsome-plugin-brotli',
-      options: {
-        extensions: ['js', 'css', 'html', 'json', 'svg']
-      }
-    }
+    'gridsome-plugin-robots-txt'
   ]
 }
