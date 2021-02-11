@@ -12,24 +12,6 @@ module.exports = {
         previewMode: true
       }
     },
-    {
-      use: 'gridsome-plugin-flexsearch',
-      options: {
-        collections: [
-          {
-            typeName: 'DatoCmsPost',
-            indexName: 'Post',
-            fields: ['title', 'path', 'description']
-          },
-          {
-            typeName: 'DatoCmsProject',
-            indexName: 'Project',
-            fields: ['title', 'path', 'description']
-          }
-        ],
-        searchFields: ['title', 'description']
-      }
-    },
     'gridsome-plugin-purgecss',
     {
       use: '@gridsome/plugin-google-analytics',
