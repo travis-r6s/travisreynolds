@@ -9,7 +9,7 @@
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.2",
     "@gridsome/plugin-sitemap": "^0.4.0",
-    "@gridsome/source-datocms": "^0.3.0",
+    "@gridsome/source-datocms": "thetre97/gridsome-source-datocms",
     "@gridsome/transformer-remark": "^0.6.4",
     "gridsome": "^0.7.23",
     "gridsome-plugin-flexsearch": "^1.0.5",
