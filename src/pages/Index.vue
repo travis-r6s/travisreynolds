@@ -37,7 +37,9 @@
           class="background-image-lazy"
           :style="{backgroundImage: `url(${post.featuredImage.transformUrl})`}">
           <header class="major">
-            <h3>{{ post.title }}</h3>
+            <p class="title">
+              {{ post.title }}
+            </p>
             <p>{{ post.subtitle }}</p>
           </header>
           <g-link

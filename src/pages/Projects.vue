@@ -37,7 +37,7 @@
           <div class="content">
             <div class="inner">
               <header class="major">
-                <h3>{{ project.title }}</h3>
+                <p>{{ project.title }}</p>
               </header>
               <div v-html="project.description.content" />
               <ul

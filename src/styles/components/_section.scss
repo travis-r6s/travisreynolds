@@ -34,6 +34,12 @@
 				}
 			}
 
+			> .title {
+				font-size: 1.75em;
+				text-transform: capitalize;
+				letter-spacing: 0;
+			}
+
 			> p {
 				font-size: 0.8em;
 				font-weight: _font(weight-bold);
