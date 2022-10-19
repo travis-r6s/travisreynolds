@@ -10,15 +10,6 @@
         </header>
         <div class="content">
           <div v-html="home.subtitle.content" />
-          <ul class="actions">
-            <li>
-              <g-link
-                :to="home.buttonUrl"
-                class="button next scrolly">
-                {{ home.buttonText }}
-              </g-link>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
