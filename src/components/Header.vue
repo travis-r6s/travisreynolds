@@ -7,14 +7,6 @@
       class="logo">
       <strong>{{ siteName.first }}</strong> <span>{{ siteName.last }}</span>
     </g-link>
-    <nav>
-      <button
-        class="menu-link"
-        @click="toggleMenu"
-        @keyup="toggleMenu">
-        Menu
-      </button>
-    </nav>
   </header>
 </template>
 
