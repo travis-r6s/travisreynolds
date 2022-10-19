@@ -48,25 +48,6 @@
             class="link primary" />
         </article>
       </section>
-      <section id="two">
-        <div class="inner">
-          <header class="major">
-            <h2>Resume</h2>
-          </header>
-          <p>
-            You can view my online resume by clicking below.
-          </p>
-          <ul class="actions">
-            <li>
-              <a
-                href="https://travisreynolds.gitlab.io/resume"
-                class="button next">
-                View Resume
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
     </div>
   </Layout>
 </template>
